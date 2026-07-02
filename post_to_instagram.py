@@ -70,6 +70,21 @@ def raise_for_meta_error(response: requests.Response, stage: str) -> None:
 
 
 def get_account_username(*, ig_user_id: str, access_token: str, api_version: str) -> str:
+    if access_token.startswith("IG"):
+        res = requests.get(
+            f"https://graph.instagram.com/{api_version}/me",
+            params={"fields": "user_id,username", "access_token": access_token},
+            timeout=45,
+        )
+        raise_for_meta_error(res, "account verify")
+        payload = res.json()
+        if isinstance(payload.get("data"), list) and payload["data"]:
+            payload = payload["data"][0]
+        user_id = str(payload.get("user_id") or "")
+        if user_id and user_id != ig_user_id:
+            raise RuntimeError(f"Configured IG user id is {ig_user_id}, but token is for {user_id}.")
+        return str(payload.get("username") or "")
+
     res = requests.get(
         f"https://graph.facebook.com/{api_version}/{ig_user_id}",
         params={"fields": "username", "access_token": access_token},
@@ -94,8 +109,9 @@ def post_carousel(
     if len(image_urls) > 10:
         raise RuntimeError("Instagram carousel supports at most 10 items.")
 
-    create_url = f"https://graph.facebook.com/{api_version}/{ig_user_id}/media"
-    publish_url = f"https://graph.facebook.com/{api_version}/{ig_user_id}/media_publish"
+    graph_host = "graph.instagram.com" if access_token.startswith("IG") else "graph.facebook.com"
+    create_url = f"https://{graph_host}/{api_version}/{ig_user_id}/media"
+    publish_url = f"https://{graph_host}/{api_version}/{ig_user_id}/media_publish"
 
     if dry_run:
         return {
@@ -170,7 +186,7 @@ def main() -> int:
     ig_user_id = str(args.ig_user_id or ig_cfg.get("ig_user_id") or "").strip()
     if not ig_user_id:
         raise RuntimeError(f"Instagram ig_user_id is missing in [{args.config_section}].")
-    api_version = str(args.api_version or ig_cfg.get("api_version") or "v20.0").strip()
+    api_version = str(args.api_version or ig_cfg.get("api_version") or "v21.0").strip()
     access_token = get_token(ig_cfg, args.access_token)
     expected_username = str(args.expected_username or ig_cfg.get("expected_username") or "").strip().lstrip("@")
 

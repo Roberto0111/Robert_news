@@ -4,8 +4,8 @@ repo_dir = "/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_dail
 
 [instagram_news]
 enabled = true
-api_version = "v20.0"
-ig_user_id = "YOUR_INSTAGRAM_BUSINESS_OR_CREATOR_USER_ID"
-access_token_env = "IG_NEWS_ACCESS_TOKEN"
+api_version = "v21.0"
+ig_user_id = "2767506050299440"
+access_token_env = "IGAASjFCIqacRBZAFpxRVN6enlzX25IMGlpcEx4bFJtbVpQOEcyanhGei1pSDJNVXRlTmgwcHF6QjRnZAEJMeGIxdk9CblY5MUJQWlQxdlZAIZAS1JdkVhR21rdUtUTGZAwRE5UblVYYU5PbFB3S1ZAqS0xDd1pkb05YVnV6ajJ1V19yWQZDZD"
 publish_delay_seconds = 8
 expected_username = "robertoo_news"
