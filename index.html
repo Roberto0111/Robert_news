@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IG Daily News Publisher</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1f2326;
+        --muted: #657076;
+        --paper: #fff8e9;
+        --line: #1f2326;
+        --teal: #10878a;
+        --yellow: #ffd54a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      header {
+        padding: 28px 20px 16px;
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 32px;
+        letter-spacing: 0;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 16px 20px 40px;
+      }
+      .date-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0 18px;
+      }
+      .badge {
+        display: inline-flex;
+        border: 3px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 14px;
+        background: var(--yellow);
+        font-weight: 800;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 16px;
+      }
+      figure {
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+        border: 3px solid var(--line);
+        border-radius: 8px;
+        background: white;
+      }
+      figcaption {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      a {
+        color: var(--teal);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>IG Daily News Publisher</h1>
+      <p>每日 20:00 的台灣迷因感新聞圖卡包。發文前請先檢查來源與具體數字。</p>
+    </header>
+    <main>
+      <div class="date-row">
+        <span class="badge">2026-07-02</span>
+        <p>v2 bold optimized</p>
+      </div>
+      <section class="grid" aria-label="2026-07-02 cards">
+        <figure>
+          <img src="daily/2026-07-02/cards/final_01_cover.png" alt="封面" />
+          <figcaption>01 Cover</figcaption>
+        </figure>
+        <figure>
+          <img src="daily/2026-07-02/cards/final_02_taiwan_island_policy.png" alt="台灣時事" />
+          <figcaption>02 台灣時事</figcaption>
+        </figure>
+        <figure>
+          <img src="daily/2026-07-02/cards/final_03_taiwan_food_safety.png" alt="台灣生活" />
+          <figcaption>03 台灣生活</figcaption>
+        </figure>
+        <figure>
+          <img src="daily/2026-07-02/cards/final_04_international_us_jobs.png" alt="國際財經" />
+          <figcaption>04 國際財經</figcaption>
+        </figure>
+        <figure>
+          <img src="daily/2026-07-02/cards/final_05_tech_gaming.png" alt="科技新梗" />
+          <figcaption>05 科技新梗</figcaption>
+        </figure>
+        <figure>
+          <img src="daily/2026-07-02/cards/final_06_summary.png" alt="今日總結" />
+          <figcaption>06 今日總結</figcaption>
+        </figure>
+      </section>
+      <nav class="links">
+        <a href="daily/2026-07-02/caption.md">Caption</a>
+        <a href="daily/2026-07-02/sources.md">Sources</a>
+      </nav>
+    </main>
+  </body>
+</html>

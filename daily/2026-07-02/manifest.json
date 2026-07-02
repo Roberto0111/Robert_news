@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-02",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_island_policy.png",
+    "cards/final_03_taiwan_food_safety.png",
+    "cards/final_04_international_us_jobs.png",
+    "cards/final_05_tech_gaming.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
