@@ -53,3 +53,18 @@ cp config.example.toml config.toml
 流程會先把 `daily/YYYY-MM-DD/cards/` 轉成公開 JPEG 並推到 GitHub Pages，再用公開 URL 建立 Instagram carousel。成功後會寫入 `daily/YYYY-MM-DD/ig_published.ok`，避免同一天重複發文。
 
 注意：股市資金流向那組既有 token 目前對應 `@roberto__stock`，不能直接拿來發 `@robertoo_news`。
+
+## 換長效 Token
+
+Instagram Login 產生的短 token 可用本機工具換成長效 token：
+
+```bash
+# 在 config.toml 的 [instagram_news] 加上 app_secret，或設定 IG_NEWS_APP_SECRET
+/opt/anaconda3/bin/python3 exchange_instagram_token.py --config config.toml --write
+```
+
+長效 token 之後可定期刷新：
+
+```bash
+/opt/anaconda3/bin/python3 exchange_instagram_token.py --config config.toml --refresh --write
+```
