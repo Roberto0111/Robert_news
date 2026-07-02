@@ -1,11 +1,11 @@
 version = 1
-id = "daily-news-ig-api"
+id = "robertoo-news-ig"
 kind = "cron"
-name = "每日新聞 IG 圖卡 API 發文"
-prompt = "每天 20:00 執行。請在 /Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher 工作。\n\n流程：\n1. 確認 daily/YYYY-MM-DD/cards 內已有 final_*.png、caption.md、sources.md、manifest.json。\n2. 若當天圖卡尚未產生，回到新聞圖卡生成流程，使用 personalized_full_v2_bold_optimized 風格產生 6 張 1080x1350 圖卡。\n3. 執行 ./publish_daily_to_ig.sh YYYY-MM-DD。這會先把圖卡推到 GitHub Pages，再用 Instagram Graph API 發 carousel 到 @robertoo_news。\n4. 如果 daily/YYYY-MM-DD/ig_published.ok 已存在，不要重複發文，除非使用者明確要求 --force。\n5. 不要要求 IG 密碼，不要印出 config.toml 裡的 access token。若 API 回報帳號不是 robertoo_news，立刻停止。"
-status = "PAUSED"
+name = "robertoo_news 每日新聞圖卡生成與 IG 發文"
+prompt = "每天 20:00 台北時間執行。請在 /Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher 工作。\n\n目標：每天產生一組「台灣迷因感」IG 直式新聞 carousel，發布到 Instagram 帳號 @robertoo_news。\n\n固定規格：\n- 圖片尺寸 1080x1350，IG 直式貼文 4:5。\n- 風格使用 personalized_full_v2_bold_optimized：卡通主播、台灣迷因感、資訊框清楚、粗體繁中，不要拉伸人物比例。\n- 每天 6 張：封面、台灣熱門時事、台灣生活/另一則台灣、國際、科技、今日總結。\n- 內容範圍：台灣熱門時事 + 國際 + 科技。\n- 語氣：有梗但不能亂講；每則新聞保留來源。\n\n流程：\n1. 設定 REPORT_DATE 為今天的台北日期 YYYY-MM-DD。\n2. 搜尋/查核今天最新的台灣熱門時事、國際新聞、科技新聞，優先使用可信來源；如果資訊時間敏感，必須查網路確認。\n3. 產出 daily/REPORT_DATE/：cards/final_01_cover.png 到 final_06_summary.png、caption.md、sources.md、manifest.json、contact_sheet.png。\n4. 若當天圖卡生成失敗、新聞來源不足、或圖片文字明顯錯誤，停止，不要發 IG。\n5. 發文前執行：/opt/anaconda3/bin/python3 post_to_instagram.py --config config.toml --caption-file daily/REPORT_DATE/caption.md --verify-account。若不是 @robertoo_news，立刻停止。\n6. 若 token 需要刷新，可執行 /opt/anaconda3/bin/python3 exchange_instagram_token.py --config config.toml --refresh --write；不要印出 access token、app_secret 或 config.toml 內容。\n7. 執行 ./publish_daily_to_ig.sh REPORT_DATE。它會把圖卡推到 GitHub Pages，再透過 Instagram API 發 carousel。\n8. 若 daily/REPORT_DATE/ig_published.ok 已存在，不要重複發文；除非使用者明確要求重發才用 --force。\n9. 發文完成後確認 GitHub push 成功與 ig_published.ok 存在，簡短回報貼文 id 或發文結果。\n\n安全規則：不要要求 IG 密碼，不要印出 token/app secret。config.toml 是本機私密檔，絕對不要加入 git。"
+status = "ACTIVE"
 rrule = "DTSTART;TZID=Asia/Taipei:20260703T200000\nRRULE:FREQ=DAILY"
-model = "gpt-5"
+model = "gpt-5.5"
 reasoning_effort = "medium"
 execution_environment = "local"
 cwds = ["/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher"]
