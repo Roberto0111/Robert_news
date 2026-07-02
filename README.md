@@ -42,5 +42,14 @@ docs/
 
 ## 發 IG 建議
 
-用 `daily/YYYY-MM-DD/cards/` 裡的 6 張圖建立 carousel 貼文。  
-貼文文字使用同日期資料夾裡的 `caption.md`，發文前再快速檢查 `sources.md` 的來源連結。
+用 `publish_daily_to_ig.sh` 走 Meta/Instagram Graph API 自動發文：
+
+```bash
+cp config.example.toml config.toml
+# 編輯 config.toml，填入 robertoo_news 對應的 ig_user_id，並設定 IG_NEWS_ACCESS_TOKEN
+./publish_daily_to_ig.sh 2026-07-02
+```
+
+流程會先把 `daily/YYYY-MM-DD/cards/` 轉成公開 JPEG 並推到 GitHub Pages，再用公開 URL 建立 Instagram carousel。成功後會寫入 `daily/YYYY-MM-DD/ig_published.ok`，避免同一天重複發文。
+
+注意：股市資金流向那組既有 token 目前對應 `@roberto__stock`，不能直接拿來發 `@robertoo_news`。

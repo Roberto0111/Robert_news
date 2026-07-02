@@ -1,0 +1,11 @@
+[github_pages]
+base_url = "https://roberto0111.github.io/Robert_news"
+repo_dir = "/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher"
+
+[instagram_news]
+enabled = true
+api_version = "v20.0"
+ig_user_id = "YOUR_INSTAGRAM_BUSINESS_OR_CREATOR_USER_ID"
+access_token_env = "IG_NEWS_ACCESS_TOKEN"
+publish_delay_seconds = 8
+expected_username = "robertoo_news"

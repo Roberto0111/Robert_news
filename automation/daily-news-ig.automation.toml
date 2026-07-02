@@ -1,0 +1,11 @@
+version = 1
+id = "daily-news-ig-api"
+kind = "cron"
+name = "每日新聞 IG 圖卡 API 發文"
+prompt = "每天 20:00 執行。請在 /Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher 工作。\n\n流程：\n1. 確認 daily/YYYY-MM-DD/cards 內已有 final_*.png、caption.md、sources.md、manifest.json。\n2. 若當天圖卡尚未產生，回到新聞圖卡生成流程，使用 personalized_full_v2_bold_optimized 風格產生 6 張 1080x1350 圖卡。\n3. 執行 ./publish_daily_to_ig.sh YYYY-MM-DD。這會先把圖卡推到 GitHub Pages，再用 Instagram Graph API 發 carousel 到 @robertoo_news。\n4. 如果 daily/YYYY-MM-DD/ig_published.ok 已存在，不要重複發文，除非使用者明確要求 --force。\n5. 不要要求 IG 密碼，不要印出 config.toml 裡的 access token。若 API 回報帳號不是 robertoo_news，立刻停止。"
+status = "PAUSED"
+rrule = "DTSTART;TZID=Asia/Taipei:20260703T200000\nRRULE:FREQ=DAILY"
+model = "gpt-5"
+reasoning_effort = "medium"
+execution_environment = "local"
+cwds = ["/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher"]
