@@ -27,11 +27,12 @@ mkdir -p "${LOG_DIR}"
 
   cd "${PROJECT_DIR}"
 
-  "${CODEX_BIN}" exec \
+  "${CODEX_BIN}" \
     --search \
+    --ask-for-approval never \
+    exec \
     --cd "${PROJECT_DIR}" \
     --sandbox danger-full-access \
-    --ask-for-approval never \
     --model gpt-5.5 \
     "這是 robertoo_news 每日新聞圖卡 fallback 執行。REPORT_DATE=${REPORT_DATE}。
 
