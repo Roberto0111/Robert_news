@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -euo pipefail
 
-cd /Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher
+cd /Users/roberto/Automation/ig_daily_news_publisher
 
 REPORT_DATE="${1:-$(date +%F)}"
 FORCE="${2:-}"

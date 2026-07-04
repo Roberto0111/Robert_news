@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -euo pipefail
 
-PROJECT_DIR="/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher"
+PROJECT_DIR="/Users/roberto/Automation/ig_daily_news_publisher"
 CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
 REPORT_DATE="${1:-$(TZ=Asia/Taipei date +%F)}"
 LOG_DIR="${PROJECT_DIR}/logs"
