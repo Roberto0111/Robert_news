@@ -4,6 +4,9 @@ from __future__ import annotations
 import argparse
 import shutil
 import subprocess
+import sys
+import urllib.error
+import urllib.request
 from pathlib import Path
 from typing import Any
 
@@ -93,6 +96,33 @@ def publish_assets(*, repo_dir: Path, report_date: str, dry_run: bool) -> list[s
     return image_urls
 
 
+def url_status(url: str) -> int | None:
+    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "ig-daily-news-publisher/1.0"})
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            return int(response.status)
+    except urllib.error.HTTPError as exc:
+        return int(exc.code)
+    except Exception:
+        return None
+
+
+def choose_base_url(base_url: str, image_paths: list[str], fallback_base_url: str) -> str:
+    if not image_paths:
+        return base_url
+    first_url = f"{base_url}/{image_paths[0]}"
+    if url_status(first_url) == 200:
+        return base_url
+    fallback_url = f"{fallback_base_url}/{image_paths[0]}"
+    if url_status(fallback_url) == 200:
+        print(
+            f"GitHub Pages URL not ready, using fallback image CDN: {fallback_base_url}",
+            file=sys.stderr,
+        )
+        return fallback_base_url
+    return base_url
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Publish daily news image assets to GitHub Pages.")
     parser.add_argument("--config", default="config.toml")
@@ -105,7 +135,11 @@ def main() -> int:
     pages_cfg: dict[str, Any] = config.get("github_pages", {})
     repo_dir = Path(str(pages_cfg.get("repo_dir") or args.repo)).expanduser().resolve()
     base_url = str(pages_cfg.get("base_url") or "https://roberto0111.github.io/Robert_news").rstrip("/")
+    fallback_base_url = str(
+        pages_cfg.get("fallback_base_url") or "https://cdn.jsdelivr.net/gh/Roberto0111/Robert_news@main"
+    ).rstrip("/")
     image_paths = publish_assets(repo_dir=repo_dir, report_date=args.date, dry_run=args.dry_run)
+    base_url = choose_base_url(base_url, image_paths, fallback_base_url)
     for image_path in image_paths:
         print(f"{base_url}/{image_path}")
     return 0
