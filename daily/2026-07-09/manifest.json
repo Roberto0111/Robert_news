@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-09",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_typhoon_bavi.png",
+    "cards/final_03_taiwan_food_oil.png",
+    "cards/final_04_international_iran_us.png",
+    "cards/final_05_tech_ai_h200.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
