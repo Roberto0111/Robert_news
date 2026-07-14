@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-14",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_southwest_rain.png",
+    "cards/final_03_taiwan_food_oil.png",
+    "cards/final_04_international_hormuz_oil.png",
+    "cards/final_05_tech_ai_supply_chain.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
