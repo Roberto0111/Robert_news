@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-19",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_dpp.png",
+    "cards/final_03_taiwan_gdp_ai.png",
+    "cards/final_04_international_kyiv.png",
+    "cards/final_05_tech_meta_outage.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
