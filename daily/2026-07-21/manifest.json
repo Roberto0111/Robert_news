@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-21",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_market.png",
+    "cards/final_03_taiwan_food_law.png",
+    "cards/final_04_international_hormuz.png",
+    "cards/final_05_tech_ai_chips.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
