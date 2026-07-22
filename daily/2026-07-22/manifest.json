@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-22",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_food_oil.png",
+    "cards/final_03_taiwan_dome.png",
+    "cards/final_04_international_ukraine.png",
+    "cards/final_05_tech_tsmc_security.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
