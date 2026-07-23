@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-23",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_hsr_yilan.png",
+    "cards/final_03_taiwan_drone_budget.png",
+    "cards/final_04_international_taiwan_film.png",
+    "cards/final_05_tech_ai_supply_chain.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
