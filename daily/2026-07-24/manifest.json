@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-24",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_typhoon_hongxia.png",
+    "cards/final_03_taiwan_hsr_yilan.png",
+    "cards/final_04_international_us_tariff.png",
+    "cards/final_05_tech_ai_spending.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
