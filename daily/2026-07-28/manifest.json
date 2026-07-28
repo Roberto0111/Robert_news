@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-28",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_stock_drop.png",
+    "cards/final_03_taiwan_inheritance_law.png",
+    "cards/final_04_international_kumamoto_quake.png",
+    "cards/final_05_tech_ai_market.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
