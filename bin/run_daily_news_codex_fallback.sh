@@ -41,11 +41,12 @@ mkdir -p "${LOG_DIR}"
 2. 若 daily/${REPORT_DATE}/ig_published.ok 已存在，停止並回報已發過。
 3. 搜尋並查核 ${REPORT_DATE} 台灣時間當天的台灣熱門時事、國際新聞、科技新聞。資訊時間敏感，必須使用網路查證。
 4. 使用既有 personalized_full_v2_bold_optimized 風格，產出 daily/${REPORT_DATE}/cards/final_01_cover.png 到 final_06_summary.png，共 6 張 1080x1350 圖卡；同時產出 caption.md、sources.md、manifest.json、contact_sheet.png。
-5. 若圖卡生成失敗、新聞來源不足、或圖片文字明顯錯誤，停止，不要發 IG。
-6. 發文前執行 /opt/anaconda3/bin/python3 post_to_instagram.py --config config.toml --caption-file daily/${REPORT_DATE}/caption.md --verify-account，若不是 @robertoo_news 立刻停止。
-7. 可執行 /opt/anaconda3/bin/python3 exchange_instagram_token.py --config config.toml --refresh --write 刷新 token，但不要印出 access token、app_secret 或 config.toml 內容。
-8. 執行 ./publish_daily_to_ig.sh ${REPORT_DATE} 發布 carousel。
-9. 完成後確認 daily/${REPORT_DATE}/ig_published.ok 存在。
+5. 同時產出 daily/${REPORT_DATE}/reel_script.json，內容必須是 JSON：hook、scenes（固定 4 則，每則包含 category、title、accent、narration）、cta。hook 必須在第一秒先講當天最大衝突；每段 narration 使用台灣繁體中文口語播報、只寫已查核事實、約 20 到 32 字；title 不超過 12 個中文字；accent 是最重要數字或 2 到 4 字關鍵詞。
+6. 若圖卡生成失敗、新聞來源不足、或圖片文字明顯錯誤，停止，不要發 IG。
+7. 發文前執行 /opt/anaconda3/bin/python3 post_to_instagram.py --config config.toml --caption-file daily/${REPORT_DATE}/caption.md --verify-account，若不是 @robertoo_news 立刻停止。
+8. 可執行 /opt/anaconda3/bin/python3 exchange_instagram_token.py --config config.toml --refresh --write 刷新 token，但不要印出 access token、app_secret 或 config.toml 內容。
+9. 執行 ./publish_daily_to_ig.sh ${REPORT_DATE} 發布 carousel。
+10. 完成後確認 daily/${REPORT_DATE}/ig_published.ok 存在。
 
 安全：不要要求 IG 密碼；不要把 config.toml 加入 git；不要印出任何 token 或 app_secret。"
 

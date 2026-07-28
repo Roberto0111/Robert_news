@@ -104,14 +104,12 @@ def main() -> int:
         caption_file = OUTPUT / f"{report_date}_news_reel_caption.md"
         render_command = [
             PYTHON,
-            "growth/render_news_reel.py",
+            "growth/render_news_reel_v2.py",
             "--day-dir",
             str(day_dir),
             "--output",
             str(video),
         ]
-        if (ANALYTICS / "latest.json").exists():
-            render_command.extend(["--strategy-json", str(ANALYTICS / "latest.json")])
         run(render_command)
         caption_file.write_text(reel_caption(day_dir), encoding="utf-8")
         log(f"rendered News Reel: {video}")
