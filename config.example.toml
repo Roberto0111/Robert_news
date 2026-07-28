@@ -1,11 +1,12 @@
 [github_pages]
 base_url = "https://roberto0111.github.io/Robert_news"
-repo_dir = "/Users/roberto/Documents/Codex/2026-07-02/new-chat-2/outputs/ig_daily_news_publisher"
+repo_dir = "/Users/roberto/Automation/ig_daily_news_publisher"
 
 [instagram_news]
 enabled = true
 api_version = "v21.0"
-ig_user_id = "2767506050299440"
-access_token_env = "IGAASjFCIqacRBZAFpxRVN6enlzX25IMGlpcEx4bFJtbVpQOEcyanhGei1pSDJNVXRlTmgwcHF6QjRnZAEJMeGIxdk9CblY5MUJQWlQxdlZAIZAS1JdkVhR21rdUtUTGZAwRE5UblVYYU5PbFB3S1ZAqS0xDd1pkb05YVnV6ajJ1V19yWQZDZD"
+ig_user_id = "YOUR_INSTAGRAM_USER_ID"
+access_token_env = "IG_NEWS_ACCESS_TOKEN"
 publish_delay_seconds = 8
 expected_username = "robertoo_news"
+reel_thumb_offset_ms = 500
