@@ -162,8 +162,80 @@ def post_carousel(
     return {"creation_id": creation_id, "publish": publish_res.json()}
 
 
+def post_reel(
+    *,
+    ig_user_id: str,
+    access_token: str,
+    video_url: str,
+    caption: str,
+    api_version: str,
+    thumb_offset_ms: int,
+    dry_run: bool,
+) -> dict[str, Any]:
+    if not video_url:
+        raise RuntimeError("Instagram Reel publishing needs a public video URL.")
+
+    graph_host = "graph.instagram.com" if access_token.startswith("IG") else "graph.facebook.com"
+    create_url = f"https://{graph_host}/{api_version}/{ig_user_id}/media"
+    publish_url = f"https://{graph_host}/{api_version}/{ig_user_id}/media_publish"
+    status_url_template = f"https://{graph_host}/{api_version}/{{creation_id}}"
+
+    if dry_run:
+        return {
+            "dry_run": True,
+            "create_url": create_url,
+            "publish_url": publish_url,
+            "video_url": video_url,
+            "caption": caption,
+            "thumb_offset_ms": max(0, thumb_offset_ms),
+        }
+
+    create_res = requests.post(
+        create_url,
+        data={
+            "media_type": "REELS",
+            "video_url": video_url,
+            "caption": caption,
+            "share_to_feed": "true",
+            "thumb_offset": str(max(0, thumb_offset_ms)),
+            "access_token": access_token,
+        },
+        timeout=45,
+    )
+    raise_for_meta_error(create_res, "Reel create")
+    creation_id = str(create_res.json()["id"])
+
+    for _ in range(60):
+        status_res = requests.get(
+            status_url_template.format(creation_id=creation_id),
+            params={
+                "fields": "status_code,status",
+                "access_token": access_token,
+            },
+            timeout=45,
+        )
+        raise_for_meta_error(status_res, "Reel status")
+        payload = status_res.json()
+        status_code = str(payload.get("status_code") or "")
+        if status_code == "FINISHED":
+            break
+        if status_code in {"ERROR", "EXPIRED"}:
+            raise RuntimeError(f"Instagram Reel processing failed: {payload}")
+        time.sleep(5)
+    else:
+        raise RuntimeError("Instagram Reel processing timed out after 5 minutes.")
+
+    publish_res = requests.post(
+        publish_url,
+        data={"creation_id": creation_id, "access_token": access_token},
+        timeout=45,
+    )
+    raise_for_meta_error(publish_res, "Reel publish")
+    return {"creation_id": creation_id, "publish": publish_res.json()}
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Publish a daily news carousel to Instagram.")
+    parser = argparse.ArgumentParser(description="Publish daily news media to Instagram.")
     parser.add_argument("--config", default="config.toml")
     parser.add_argument("--config-section", default="instagram_news")
     parser.add_argument("--ig-user-id")
@@ -171,6 +243,9 @@ def main() -> int:
     parser.add_argument("--api-version")
     parser.add_argument("--expected-username")
     parser.add_argument("--image-url", action="append", default=[])
+    parser.add_argument("--reel", action="store_true")
+    parser.add_argument("--video-url")
+    parser.add_argument("--thumb-offset-ms", type=int)
     parser.add_argument("--caption-file", required=True)
     parser.add_argument("--publish-delay-seconds", type=int)
     parser.add_argument("--verify-account", action="store_true")
@@ -197,8 +272,31 @@ def main() -> int:
         print(f"Instagram account verified: @{username}")
         return 0
 
-    image_urls = [str(item).strip() for item in args.image_url if str(item).strip()]
     caption = Path(args.caption_file).read_text(encoding="utf-8").strip()
+    if args.reel:
+        thumb_offset_ms = int(
+            args.thumb_offset_ms
+            if args.thumb_offset_ms is not None
+            else ig_cfg.get("reel_thumb_offset_ms", 500)
+        )
+        result = post_reel(
+            ig_user_id=ig_user_id,
+            access_token=access_token,
+            video_url=str(args.video_url or "").strip(),
+            caption=caption,
+            api_version=api_version,
+            thumb_offset_ms=thumb_offset_ms,
+            dry_run=args.dry_run,
+        )
+        if args.dry_run:
+            print(f"Instagram Reel dry run OK for @{username}.")
+            print(f"Video URL: {result['video_url']}")
+            print(f"Reel thumbnail offset: {result['thumb_offset_ms']} ms")
+        else:
+            print(f"Instagram Reel posted to @{username}: {result['publish']}")
+        return 0
+
+    image_urls = [str(item).strip() for item in args.image_url if str(item).strip()]
     publish_delay_seconds = int(
         args.publish_delay_seconds
         if args.publish_delay_seconds is not None
