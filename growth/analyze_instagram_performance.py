@@ -62,7 +62,17 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config.toml")
     parser.add_argument("--output-dir", default="growth/analytics")
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
+    output_dir = Path(args.output_dir)
+    latest_path = output_dir / "latest.json"
+    today = dt.datetime.now().astimezone().date().isoformat()
+    if latest_path.exists() and not args.force:
+        cached = json.loads(latest_path.read_text(encoding="utf-8"))
+        if str(cached.get("collected_at", "")).startswith(today):
+            print("News strategy cache is current; skipping duplicate Insights requests.")
+            return 0
+
     with Path(args.config).open("rb") as file:
         cfg = tomllib.load(file)["instagram_news"]
     token = str(cfg["access_token"])
@@ -86,15 +96,21 @@ def main() -> int:
         f"{user_id}/media",
         token,
         fields="id,caption,media_type,media_product_type,permalink,timestamp,like_count,comments_count",
-        limit=30,
+        limit=20,
     )
     if not media_response.ok:
         raise RuntimeError(f"Instagram media request failed: HTTP {media_response.status_code}")
 
+    media = media_response.json().get("data", [])
+    reels = [item for item in media if item.get("media_product_type") == "REELS"][:8]
+    feed = [item for item in media if item.get("media_product_type") != "REELS"][:8]
+    selected_ids = {str(item.get("id")) for item in reels + feed}
+    selected_media = [item for item in media if str(item.get("id")) in selected_ids]
+
     posts = []
     insight_successes = 0
     permission_error = ""
-    for item in media_response.json().get("data", []):
+    for item in selected_media:
         metrics: dict[str, float] = {}
         response = get(
             base,
@@ -159,7 +175,6 @@ def main() -> int:
         "recommendations": recommendations,
         "posts": posts,
     }
-    output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     stamp = now.strftime("%Y-%m-%d_%H-%M-%S")
     serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
