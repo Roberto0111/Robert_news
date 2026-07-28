@@ -27,6 +27,7 @@ RED = "#f23838"
 CYAN = "#46d2d8"
 GOLD = "#ffc342"
 VOICE = "Reed (中文（台灣）)"
+VOICE_RATE = 205
 
 
 def font(size: int) -> ImageFont.FreeTypeFont:
@@ -238,7 +239,8 @@ def render_cta(date: str, cta: str, output: Path) -> None:
 
 
 def synthesize_voice(text: str, output: Path, voice: str, rate: int) -> float:
-    subprocess.run([SAY, "-v", voice, "-r", str(rate), "-o", str(output), text], check=True)
+    speech = "[[pmod 42]]" + text
+    subprocess.run([SAY, "-v", voice, "-r", str(rate), "-o", str(output), speech], check=True)
     result = subprocess.run(
         [FFPROBE, "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(output)],
         check=True,
@@ -346,14 +348,16 @@ def render_video(
     for index, duration in enumerate(durations):
         filters.append(
             f"[{voice_offset + index}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
+            "highpass=f=85,lowpass=f=10500,"
+            "acompressor=threshold=0.12:ratio=2.5:attack=5:release=90:makeup=1.35,"
             f"apad=pad_dur=1,atrim=duration={duration:.3f},asetpts=PTS-STARTPTS[a{index}]"
         )
     voice_streams = "".join(f"[a{index}]" for index in range(len(voice_paths)))
     filters.append(f"{voice_streams}concat=n={len(voice_paths)}:v=0:a=1[voice]")
     music_index = len(frames) + len(voice_paths)
-    filters.append(f"[{music_index}:a]volume=0.20[music]")
+    filters.append(f"[{music_index}:a]volume=0.16[music]")
     filters.append(
-        "[voice][music]amix=inputs=2:duration=first:weights='1 0.34':normalize=0,"
+        "[voice][music]amix=inputs=2:duration=first:weights='1 0.24':normalize=0,"
         "loudnorm=I=-16:LRA=7:TP=-1.5[audio]"
     )
 
@@ -394,7 +398,7 @@ def main() -> int:
     parser.add_argument("--output", required=True)
     parser.add_argument("--script-json", default="")
     parser.add_argument("--voice", default=VOICE)
-    parser.add_argument("--voice-rate", type=int, default=225)
+    parser.add_argument("--voice-rate", type=int, default=VOICE_RATE)
     args = parser.parse_args()
 
     day_dir = Path(args.day_dir)
