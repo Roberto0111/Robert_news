@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-29",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_stock_40000.png",
+    "cards/final_03_international_kumamoto_aftershock.png",
+    "cards/final_04_tech_japan_supply_chain.png",
+    "cards/final_05_tech_sk_hynix_ai.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
