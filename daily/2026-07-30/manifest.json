@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-30",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_stock_under_40000.png",
+    "cards/final_03_international_kumamoto_34_dead.png",
+    "cards/final_04_tech_jasm_inspection.png",
+    "cards/final_05_tech_tsmc_trade_secret.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
