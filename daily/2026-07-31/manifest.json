@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-31",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_stock_record_jump.png",
+    "cards/final_03_taiwan_ai_gdp.png",
+    "cards/final_04_international_kumamoto_35_dead.png",
+    "cards/final_05_tech_anthropic_hack.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
