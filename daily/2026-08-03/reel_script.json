@@ -1,0 +1,34 @@
+{
+  "hook": "白海豚最快七日發海警，北部山區要防豪雨。傘別裝死。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "海警逼近",
+      "accent": "七日",
+      "narration": "白海豚最快七日下半天發海警，八到十日影響較明顯。",
+      "playful": false
+    },
+    {
+      "category": "台灣食安",
+      "title": "油源疑雲",
+      "accent": "八批",
+      "narration": "八批苦茶油源頭指向源春，產品全面預防性下架。油品履歷又開始考古。",
+      "playful": true
+    },
+    {
+      "category": "國際焦點",
+      "title": "停打談判",
+      "accent": "荷莫茲",
+      "narration": "川普稱三日與伊朗談判，焦點是荷莫茲與核威脅。",
+      "playful": false
+    },
+    {
+      "category": "科技財經",
+      "title": "伺服器加速",
+      "accent": "近三一趴",
+      "narration": "集邦上修今年AI伺服器出貨，年增估近三十一趴。雲端花錢比人類果斷。",
+      "playful": true
+    }
+  ],
+  "cta": "颱風和食安都會影響生活，轉給今天還沒跟上重點的人。"
+}
