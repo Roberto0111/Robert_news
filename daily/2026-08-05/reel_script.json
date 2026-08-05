@@ -1,0 +1,34 @@
+{
+  "hook": "白海豚週末逼近，最快七日發海警。陽台醒醒。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "海警將近",
+      "accent": "七日",
+      "narration": "白海豚最快七日下半天發海警，週末北部防豪雨。",
+      "playful": false
+    },
+    {
+      "category": "民生政策",
+      "title": "補貼延長?",
+      "accent": "一點一億",
+      "narration": "關稅衝擊九行業，勞工補貼已核發約一點一億。薪水被關稅敲門，政策才開始找門鈴。",
+      "playful": true
+    },
+    {
+      "category": "國際",
+      "title": "荷莫茲卡關",
+      "accent": "重擊",
+      "narration": "美伊談判聚焦荷莫茲通行，川普稱破局將重擊伊朗。",
+      "playful": false
+    },
+    {
+      "category": "科技",
+      "title": "AI租金爆表",
+      "accent": "三十五兆",
+      "narration": "五大科技巨頭AI租賃承諾約三十五兆元。模型還在算字，帳單先長肌肉。",
+      "playful": true
+    }
+  ],
+  "cta": "週末天氣會影響出門與通勤，轉給還沒看預報的人。"
+}
