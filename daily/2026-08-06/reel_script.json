@@ -1,0 +1,34 @@
+{
+  "hook": "白海豚延後北轉，父親節中部以北防豪大雨。先收陽台。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "豪雨卡父親節",
+      "accent": "八九日",
+      "narration": "白海豚八九日最接近，中部以北父親節防豪大雨。",
+      "playful": false
+    },
+    {
+      "category": "民生財經",
+      "title": "物價又破線",
+      "accent": "二點五四",
+      "narration": "七月CPI年增二點五四趴，連三月破通膨警戒線。錢包今天也有氣象警報。",
+      "playful": true
+    },
+    {
+      "category": "產業政策",
+      "title": "關稅先放話",
+      "accent": "十五趴",
+      "narration": "美國擬對多晶矽課十五趴關稅，經部說範圍待公告。產業先備傘，雨還在雲裡。",
+      "playful": true
+    },
+    {
+      "category": "科技資安",
+      "title": "路由器藏門",
+      "accent": "十萬台",
+      "narration": "中國製Zbtlink路由器被揭後門，全球約十萬台恐受影響。網路門鎖看起來很有禮貌。",
+      "playful": true
+    }
+  ],
+  "cta": "週末雨勢和長浪會影響出門，轉給還沒看預報的人。"
+}

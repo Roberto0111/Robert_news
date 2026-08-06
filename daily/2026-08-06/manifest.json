@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-06",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_weather_typhoon_dolphin.png",
+    "cards/final_03_taiwan_cpi_prices.png",
+    "cards/final_04_international_solar_tariff.png",
+    "cards/final_05_tech_router_backdoor.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
