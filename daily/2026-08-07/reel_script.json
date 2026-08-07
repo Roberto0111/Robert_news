@@ -1,0 +1,34 @@
+{
+  "hook": "白海豚發海警，週末北部防大雨。傘先上班。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "海警撞週末",
+      "accent": "海警",
+      "narration": "白海豚今天發布海警，八九日降雨最明顯。",
+      "playful": false
+    },
+    {
+      "category": "政策",
+      "title": "三兆預算卡關",
+      "accent": "三點六兆",
+      "narration": "明年總預算約三點六兆，行政院盼八月底送審。會議桌先不要颱風化。",
+      "playful": true
+    },
+    {
+      "category": "科技財經",
+      "title": "出口靠AI衝",
+      "accent": "三十二點九",
+      "narration": "七月出口年增三十二點九趴，AI伺服器仍撐動能。經濟引擎現在很會算圖。",
+      "playful": true
+    },
+    {
+      "category": "國際",
+      "title": "公民權再戰",
+      "accent": "行政令",
+      "narration": "川普簽行政令限縮出生公民權，生育旅遊也被鎖定。法律戰又要加班。",
+      "playful": true
+    }
+  ],
+  "cta": "週末雨勢和長浪會影響出門，轉給還沒看預報的人。"
+}
