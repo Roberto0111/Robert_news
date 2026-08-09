@@ -1,0 +1,34 @@
+{
+  "hook": "白海豚讓九航線停航，班機也大取消。先別衝港口。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "停航撞颱風",
+      "accent": "九航線",
+      "narration": "白海豚今天最接近台灣，九航線七十九航次停航。",
+      "playful": false
+    },
+    {
+      "category": "政策",
+      "title": "國防破兆",
+      "accent": "一點一兆",
+      "narration": "明年國防預算預期約一點一兆，首度破兆。算盤今天穿迷彩。",
+      "playful": true
+    },
+    {
+      "category": "民生",
+      "title": "網路要降速",
+      "accent": "半小時",
+      "narration": "中部明天下午演練行動網路降速半小時。行動支付先別壓線演出。",
+      "playful": true
+    },
+    {
+      "category": "科技",
+      "title": "晶圓搶人",
+      "accent": "千人",
+      "narration": "ASML今年在台招募逾千人，支援晶圓廠擴產。履歷也要微影級精準。",
+      "playful": true
+    }
+  ],
+  "cta": "明天要搭船、搭機、付款或開會的人，先轉給他看。"
+}

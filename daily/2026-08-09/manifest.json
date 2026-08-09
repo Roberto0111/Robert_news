@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-09",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_weather_typhoon_dolphin.png",
+    "cards/final_03_taiwan_defense_budget.png",
+    "cards/final_04_taiwan_network_drill.png",
+    "cards/final_05_tech_asml_hiring.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
