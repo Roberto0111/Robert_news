@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-12",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_network_drill.png",
+    "cards/final_03_taiwan_hualien_drill.png",
+    "cards/final_04_tech_foxconn_ai.png",
+    "cards/final_05_tech_semi_testing.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
