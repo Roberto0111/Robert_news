@@ -1,0 +1,34 @@
+{
+  "hook": "北部網路降速，麥當勞蝦堡也下架。今天很卡。",
+  "scenes": [
+    {
+      "category": "公共安全",
+      "title": "北部降速",
+      "accent": "半小時",
+      "narration": "北部七縣市下午完成行動網路降速演練。票券付款別只押雲端。",
+      "playful": false
+    },
+    {
+      "category": "生活食安",
+      "title": "蝦堡下架",
+      "accent": "零點七ppb",
+      "narration": "麥當勞兩款蝦堡檢出硝基呋喃代謝物停售。新品上架一天，就先進入冷靜期。",
+      "playful": true
+    },
+    {
+      "category": "國際",
+      "title": "太平洋試射",
+      "accent": "四十一國",
+      "narration": "四十一國聯合聲明關切太平洋導彈試射。區域安全訊號升高，後續外交反應要看。",
+      "playful": false
+    },
+    {
+      "category": "科技",
+      "title": "AI晶片失速",
+      "accent": "七十四點三趴",
+      "narration": "Cerebras 第二季銷售額年增七十四點三趴仍低於預期。AI 很熱，華爾街的冷氣更強。",
+      "playful": true
+    }
+  ],
+  "cta": "把這篇轉給北部常用行動支付、電子票券，或今天買過蝦堡的人。"
+}
