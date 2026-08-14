@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-14",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_taiwan_budget.png",
+    "cards/final_03_weather_rain_heat.png",
+    "cards/final_04_tech_drone_plan.png",
+    "cards/final_05_economy_tariff.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
