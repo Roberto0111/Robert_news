@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-16",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_weather_heavy_rain.png",
+    "cards/final_03_taiwan_referendum.png",
+    "cards/final_04_international_indonesia_quake.png",
+    "cards/final_05_tech_invention.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
