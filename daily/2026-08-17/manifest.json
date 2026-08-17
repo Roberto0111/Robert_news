@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-17",
+  "style": "personalized_full_v2_bold_optimized",
+  "size": "1080x1350",
+  "cards": [
+    "cards/final_01_cover.png",
+    "cards/final_02_weather_south_rain.png",
+    "cards/final_03_taiwan_budget_cash.png",
+    "cards/final_04_international_gaza_plan.png",
+    "cards/final_05_tech_ai_cyber.png",
+    "cards/final_06_summary.png"
+  ],
+  "caption": "caption.md",
+  "sources": "sources.md"
+}
